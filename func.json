@@ -1,0 +1,30 @@
+{
+ "$ping": {
+  "name": "$ping",
+  "usage": "[]"
+ }, 
+  "$message": {
+  "name": "$message",
+  "usage": "[arg(optional)]"
+ },
+  "$uptime": {
+  "name": "$uptime",
+  "usage": "[]",
+ }, 
+  "$jseval": {
+  "name": "$jsEval",
+  "usage": "[javascript code]"
+ },
+  "$onlySender": {
+  "name": "$onlySender",
+  "usage": "[error message;number(123@s.whatsapp.net)]"
+ },
+  "$log": {
+  "name": "$log",
+  "usage": "[message]"
+ },
+  "$eval": {
+  "name": "$eval",
+  "usage": "[eval code]"
+  }
+ }
