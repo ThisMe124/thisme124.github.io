@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Refresh" content="10; URL=https://google.com" />
+    <meta http-equiv="Refresh" content="10; URL=<%= url %>" />
     <meta charset="UTF-8" />
     <title>Redirecting to Google</title>
     <!-- Tailwind CSS -->
@@ -48,7 +48,7 @@
         <h1 class="text-2xl font-bold mb-8 text-center">Redirecting to Google in 10 seconds...</h1>
         <div class="lds-ripple"><div></div><div></div></div>
         <p class="mt-4 text-center text-gray-700">
-          If you are not redirected, please click <a href="https://google.com" class="text-blue-500 hover:underline">here</a>.
+          If you are not redirected, please click <a href="<%= url %>" class="text-blue-500 hover:underline">here</a>.
         </p>
       </div>
     </div>
