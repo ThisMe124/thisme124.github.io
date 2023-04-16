@@ -5,14 +5,16 @@
     <meta charset="UTF-8" />
     <title>Redirecting to Google</title>
     <!-- Tailwind CSS -->
-    <link href="https://unpkg.com/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div class="max-w-lg w-full mx-auto p-8 bg-white shadow-lg rounded-lg">
+    <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <div class="flex flex-col items-center justify-center p-8 bg-white rounded-lg shadow-lg">
         <h1 class="text-2xl font-bold mb-8 text-center">Redirecting to Google in 10 seconds...</h1>
-        <div class="w-16 h-16 mx-auto mb-8 rounded-full border-4 border-t-4 border-gray-200 border-opacity-25 animate-spin"></div>
-        <p class="text-center">If you are not redirected, please click <a href="https://google.com" class="text-blue-500 hover:underline">here</a>.</p>
+        <div class="inline-flex rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
+        <p class="mt-4 text-center text-gray-700">
+          If you are not redirected, please click <a href="https://google.com" class="text-blue-500 hover:underline">here</a>.
+        </p>
       </div>
     </div>
   </body>
