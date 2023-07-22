@@ -1,0 +1,62 @@
+[
+  {
+    "number_month": 1,
+    "month_id": "Januari",
+    "month_en": "January"
+  },
+  {
+    "number_month": 2,
+    "month_id": "Februari",
+    "month_en": "February"
+  },
+  {
+    "number_month": 3,
+    "month_id": "Maret",
+    "month_en": "March"
+  },
+  {
+    "number_month": 4,
+    "month_id": "April",
+    "month_en": "April"
+  },
+  {
+    "number_month": 5,
+    "month_id": "Mei",
+    "month_en": "May"
+  },
+  {
+    "number_month": 6,
+    "month_id": "Juni",
+    "month_en": "June"
+  },
+  {
+    "number_month": 7,
+    "month_id": "Juli",
+    "month_en": "July"
+  },
+  {
+    "number_month": 8,
+    "month_id": "Agustus",
+    "month_en": "August"
+  },
+  {
+    "number_month": 9,
+    "month_id": "September",
+    "month_en": "September"
+  },
+  {
+    "number_month": 10,
+    "month_id": "Oktober",
+    "month_en": "October"
+  },
+  {
+    "number_month": 11,
+    "month_id": "November",
+    "month_en": "November"
+  },
+  {
+    "number_month": 12,
+    "month_id": "Desember",
+    "month_en": "December"
+  }
+]
