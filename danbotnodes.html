@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>anonymfile.com downloader </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #343a40;
+      color: #ffffff;
+      background: url(https://i.ibb.co/zSgJcBs/image.jpg); 
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .card {
+      background-color: #2c3037;
+      color: #ffffff; 
+    }
+
+    .download-buttons {
+      margin-top: 10px; 
+    }
+
+    .download-buttons button {
+      margin-right: 10px; 
+    }
+
+    .loading-spinner {
+      display: none; 
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Check Nodes Danbot Hosting
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="anonymUrl">Check a Nodes on Danbot Hosting, You can click "Check Now"</label>
+        </div>
+      <button class="btn btn-primary" id="fetch_anonym">Check Now</button>
+      <button class="btn btn-primary" onclick="window.open('/', '_blank')">Refresh</button>
+      <p>
+      <p>
+      <div class="loading-spinner text-center">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div id="anym-content" class="mt-4">
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+   document.addEventListener('DOMContentLoaded', function () {
+     const fetchButton = document.getElementById('fetch_anonym');
+     const loadingSpinner = document.querySelector('.loading-spinner');
+
+     fetchButton.addEventListener('click', function () {
+       const anonymContent = document.getElementById('anym-content');
+
+       anonymContent.innerHTML = null
+       loadingSpinner.style.display = 'block';
+       fetchButton.disabled = true;
+  fetch('https://danbotstatus-api-branz.cyclic.app/nodeStatus')
+       .then(response => response.json())
+       .then(data => {
+         loadingSpinner.style.display = 'none';     
+         fetchButton.disabled = false;         
+          
+         for (const last of data.response) {
+            anonymContent.innerHTML += `<h5 class="card-title">Nodes : ${last.nodeName}</h5>
+          <p class="card-text download-buttons">
+          <button class="btn btn-warning" onclick="window.open('https://panel.danbot.host', '_blank')">${last.statusMessage}</button>
+          </p> `
+        }
+        
+   })
+       .catch(error => {
+         loadingSpinner.style.display = 'none';
+         fetchButton.disabled = false;
+         anonymContent.innerHTML = `<p class="card-header">
+         ${error.message}
+       </p>`
+       });
+     });
+   });
+  
+</script>
+</body>
+</html>
