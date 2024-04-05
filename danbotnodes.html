@@ -90,7 +90,7 @@
          for (const last of data.response) {
             anonymContent.innerHTML += `<h5 class="card-title">Nodes : ${last.nodeName}</h5>
           <p class="card-text download-buttons">
-          <button class="btn btn-warning" onclick="window.open('https://panel.danbot.host', '_blank')">${last.statusMessage}</button>
+          <button class="btn btn-warning" disabled">${last.statusMessage}</button>
           </p> `
         }
         
