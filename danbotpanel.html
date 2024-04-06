@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Danbot Hosting Panel Status Check </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #343a40;
+      color: #ffffff;
+      background: url(https://i.ibb.co/zSgJcBs/image.jpg); 
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .card {
+      background-color: #2c3037;
+      color: #ffffff; 
+    }
+
+    .download-buttons {
+      margin-top: 10px; 
+    }
+
+    .download-buttons button {
+      margin-right: 10px; 
+    }
+
+    .loading-spinner {
+      display: none; 
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Check Panel Danbot Hosting
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="woww">Check a Panel on Danbot Hosting, You can click "Check Now"</label>
+        </div>
+      <button class="btn btn-primary" id="fetch-status">Check Now</button>
+      <p>
+      <p>
+      <div class="loading-spinner text-center">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div id="fetch-content" class="mt-4">
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+   document.addEventListener('DOMContentLoaded', function () {
+     const fetchButton = document.getElementById('fetch-status');
+     const loadingSpinner = document.querySelector('.loading-spinner');
+
+     fetchButton.addEventListener('click', function () {
+       const fetchContent = document.getElementById('fetch-content');
+
+       fetchContent.innerHTML = null
+       loadingSpinner.style.display = 'block';
+       fetchButton.disabled = true;
+  fetch('https://danbotstatus-api-branz.cyclic.app/panelStatus')
+       .then(response => response.json())
+       .then(data => {
+         loadingSpinner.style.display = 'none';     
+         fetchButton.disabled = false;         
+            fetchContent.innerHTML = `<h5 class="card-title">Panel Status</h5>
+          <p class="card-text download-buttons">
+          <button type="button" class="btn btn-dark" disabled">${data.response.panel_status}</button>
+          </p> `
+
+   })
+       .catch(error => {
+         loadingSpinner.style.display = 'none';
+         fetchButton.disabled = false;
+         fetchContent.innerHTML = `<p class="card-header">
+         ${error.message}
+       </p>`
+       });
+     });
+   });
+  
+</script>
+</body>
+</html>
